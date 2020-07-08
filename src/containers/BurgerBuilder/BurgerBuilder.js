@@ -1,6 +1,7 @@
 import React from 'react';
 import Aux from '../../high-order-components/Auxiliary';
-import Burger from '../../components/Burger/Burger'
+import Burger from '../../components/Burger/Burger';
+import BuildControls from '../../components/Burger/BuildControls/BuildControls';
 
 class BurgerBuilder extends React.Component {
     // constructor(props) {
