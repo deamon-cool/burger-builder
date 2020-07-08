@@ -3,6 +3,13 @@ import Aux from '../../high-order-components/Auxiliary';
 import Burger from '../../components/Burger/Burger';
 import BuildControls from '../../components/Burger/BuildControls/BuildControls';
 
+const INGREDIENT_PRICES = {
+    salad: 0.3,
+    cheese: 0.7,
+    meat: 1.4,
+    bacon: 0.8
+}
+
 class BurgerBuilder extends React.Component {
     // constructor(props) {
     //     super(props);
