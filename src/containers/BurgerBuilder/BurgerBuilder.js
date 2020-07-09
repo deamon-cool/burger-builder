@@ -37,7 +37,7 @@ class BurgerBuilder extends React.Component {
                 return sum + el;
             }, 0);
 
-        this.setState({purchasable: sum > 0})
+        this.setState({ purchasable: sum > 0 })
     }
 
     addIngredientHandler = (type) => {
