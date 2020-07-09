@@ -2,12 +2,12 @@ import React from 'react';
 import Aux from '../../../high-order-components/Auxiliary';
 
 const orderSummary = (props) => {
-    const ingredientSummary = Object.keys(props.ingredinets)
+    const ingredientSummary = Object.keys(props.ingredients)
         .map(igKey => {
             return (
-                < li >
-                    <span style={{ textTransform: 'capitalize' }}>{igKey}</span>: { props.ingredinets[igKey]}
-                </li >
+                <li key={igKey}>
+                    <span style={{ textTransform: 'capitalize' }}>{igKey}</span>: {props.ingredients[igKey]}
+                </li>
             );
         });
 
