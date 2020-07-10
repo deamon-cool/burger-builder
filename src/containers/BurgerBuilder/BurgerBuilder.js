@@ -26,7 +26,8 @@ class BurgerBuilder extends React.Component {
             meat: 0
         },
         totalPrice: 4,
-        purchasable: false
+        purchasable: false,
+        purchasing: false
     }
 
     updatePurchase(ingredients) {
