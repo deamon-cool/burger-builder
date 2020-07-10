@@ -87,6 +87,10 @@ class BurgerBuilder extends React.Component {
         this.updatePurchase(updatedIngredients);
     }
 
+    purchaseHandler() {
+        this.setState({ purchasing: true });
+    }
+
     render() {
         const disabledInfo = {
             ...this.state.ingredients
@@ -107,6 +111,7 @@ class BurgerBuilder extends React.Component {
                     ingredientRemoved={this.removeIngredientHandler}
                     disabled={disabledInfo}
                     purchasable={this.state.purchasable}
+                    ordered={this.purchaseHandler}
                     price={this.state.totalPrice} />
             </Aux>
         );
