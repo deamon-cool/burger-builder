@@ -10,4 +10,4 @@ const navigationItem = (props) => (
     </li>
 );
 
-export default navigationItems;
+export default navigationItem;
