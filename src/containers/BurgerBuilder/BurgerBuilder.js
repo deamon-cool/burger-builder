@@ -99,6 +99,8 @@ class BurgerBuilder extends React.Component {
     }
 
     purchaseContinueHandler = () => {
+        this.setState({ loading: true });
+
         const order = {
             ingredients: this.state.ingredients,
             price: this.state.totalPrice,
@@ -122,10 +124,16 @@ class BurgerBuilder extends React.Component {
 
         fetch(config.url + 'orders.json', init)
             .then(res => {
-                console.log(res);
+
             })
             .catch(err => {
-                console.log(err);
+
+            })
+            .finally(() => {
+                this.setState({
+                    loading: false,
+                    purchasing: false
+                });
             });
     }
 
@@ -138,16 +146,22 @@ class BurgerBuilder extends React.Component {
             disabledInfo[key] = disabledInfo[key] <= 0;
         }
 
+        let orderSummary = <OrderSummary
+            ingredients={this.state.ingredients}
+            purchaseCanceled={this.purchaseCancelHandler}
+            purchasedContinued={this.purchaseContinueHandler}
+            price={this.state.totalPrice} />;
+
+        if (this.state.loading) {
+            orderSummary = <Spinner />;
+        }
+
         return (
             <Aux>
                 <Modal
                     show={this.state.purchasing}
                     modalClosed={this.purchaseCancelHandler}>
-                    <OrderSummary
-                        ingredients={this.state.ingredients}
-                        purchaseCanceled={this.purchaseCancelHandler}
-                        purchasedContinued={this.purchaseContinueHandler}
-                        price={this.state.totalPrice} />
+                    {orderSummary}
                 </Modal>
                 <Burger ingredients={this.state.ingredients} />
                 <BuildControls
