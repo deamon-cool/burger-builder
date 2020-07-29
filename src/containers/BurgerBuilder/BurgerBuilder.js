@@ -4,6 +4,7 @@ import Burger from '../../components/Burger/Burger';
 import BuildControls from '../../components/Burger/BuildControls/BuildControls';
 import Modal from '../../components/UI/Modal/Modal';
 import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary';
+import config from '../../config-fetch';
 
 const INGREDIENT_PRICES = {
     salad: 0.3,
@@ -96,7 +97,34 @@ class BurgerBuilder extends React.Component {
     }
 
     purchaseContinueHandler = () => {
-        alert('You continue!');
+        const order = {
+            ingredients: this.state.ingredients,
+            price: this.state.totalPrice,
+            customer: {
+                name: 'Der Damin',
+                address: {
+                    street: 'Street nr 1',
+                    zipCode: '42211',
+                    country: 'Albania'
+                },
+                email: 'test@test.com'
+            },
+            deliverMethod: 'fastest'
+        }
+
+        const init = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(order)
+        };
+
+        fetch(config.url + 'orders.json', init)
+            .then(res => {
+                console.log(res);
+            })
+            .catch(err => {
+                console.log(err);
+            });
     }
 
     render() {
