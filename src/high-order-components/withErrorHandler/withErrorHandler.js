@@ -3,15 +3,30 @@ import Modal from '../../components/UI/Modal/Modal'
 import Aux from '../../high-order-components/Auxiliary';
 
 const withErrorHandler = (WrappedComponent) => {
-    return (props) => {
-        return (
-            <Aux>
-                <Modal>
-                    Something didn't work
-                </Modal>
-                <WrappedComponent {...props} />
-            </Aux>
-        );
+    return class extends React.Component {
+        state = {
+            error: null
+        }
+
+        componentDidMount() {
+
+        }
+
+        errorConfirmedHandler = () => {
+            this.setState({ error: null });
+        }
+
+        render() {
+            return (
+                <Aux>
+                    <Modal show={this.state.error}
+                        modalClosed={this.errorConfirmedHandler}>
+                        {this.state.error ? this.state.error.message : null}
+                    </Modal>
+                    <WrappedComponent {...this.props} />
+                </Aux >
+            );
+        }
     }
 }
 
