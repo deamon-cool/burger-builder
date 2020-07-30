@@ -6,6 +6,7 @@ import Modal from '../../components/UI/Modal/Modal';
 import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary';
 import config from '../../config-fetch';
 import Spinner from '../../components/UI/Spinner/Spinner';
+import withErrorHandler from '../../high-order-components/withErrorHandler/withErrorHandler';
 
 const INGREDIENT_PRICES = {
     salad: 0.3,
@@ -176,4 +177,4 @@ class BurgerBuilder extends React.Component {
     }
 }
 
-export default BurgerBuilder;
+export default withErrorHandler(BurgerBuilder);
