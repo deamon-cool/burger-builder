@@ -30,7 +30,8 @@ class BurgerBuilder extends React.Component {
         totalPrice: 4,
         purchasable: false,
         purchasing: false,
-        loading: false
+        loading: false,
+        error: null
     }
 
     updatePurchase(ingredients) {
@@ -95,7 +96,10 @@ class BurgerBuilder extends React.Component {
     }
 
     purchaseCancelHandler = () => {
-        this.setState({ purchasing: false });
+        this.setState({
+            purchasing: false,
+            error: null
+        });
     }
 
     purchaseContinueHandler = () => {
@@ -122,12 +126,12 @@ class BurgerBuilder extends React.Component {
             body: JSON.stringify(order)
         };
 
-        fetch(config.url + 'orders.json', init)
+        fetch(config.url + 'orders', init)
             .then(res => {
 
             })
             .catch(err => {
-
+                this.setState({ error: err })
             })
             .finally(() => {
                 this.setState({
@@ -146,20 +150,25 @@ class BurgerBuilder extends React.Component {
             disabledInfo[key] = disabledInfo[key] <= 0;
         }
 
-        let orderSummary = <OrderSummary
-            ingredients={this.state.ingredients}
-            purchaseCanceled={this.purchaseCancelHandler}
-            purchasedContinued={this.purchaseContinueHandler}
-            price={this.state.totalPrice} />;
+        let orderSummary;
+        if (!this.state.error && this.state.purchasing) {
+            orderSummary = <OrderSummary
+                ingredients={this.state.ingredients}
+                purchaseCanceled={this.purchaseCancelHandler}
+                purchasedContinued={this.purchaseContinueHandler}
+                price={this.state.totalPrice} />;
 
-        if (this.state.loading) {
-            orderSummary = <Spinner />;
+            if (this.state.loading) {
+                orderSummary = <Spinner />;
+            }
+        } else {
+            orderSummary = 'Network error';
         }
 
         return (
             <Aux>
                 <Modal
-                    show={this.state.purchasing}
+                    show={this.state.purchasing || this.state.error}
                     modalClosed={this.purchaseCancelHandler}>
                     {orderSummary}
                 </Modal>
