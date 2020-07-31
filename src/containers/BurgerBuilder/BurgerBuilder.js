@@ -126,7 +126,7 @@ class BurgerBuilder extends React.Component {
             body: JSON.stringify(order)
         };
 
-        fetch(config.url + 'orders', init)
+        fetch(config.url + 'orders.json', init)
             .then(res => {
 
             })
