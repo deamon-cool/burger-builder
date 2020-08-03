@@ -36,7 +36,7 @@ class BurgerBuilder extends React.Component {
             headers: { 'Content-Type': 'application/json' },
         };
 
-        fetch('https://burger-builder-d0207.firebaseio.com/ingredients.jso', init)
+        fetch('https://burger-builder-d0207.firebaseio.com/ingredients.json', init)
             .then(res => res.json())
             .then(data => {
                 this.setState({ ingredients: data });
