@@ -109,7 +109,7 @@ class BurgerBuilder extends React.Component {
     purchaseCancelHandler = () => {
         this.setState({
             purchasing: false,
-            error: null
+            errorPost: null
         });
     }
 
