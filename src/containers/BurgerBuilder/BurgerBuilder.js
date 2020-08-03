@@ -158,24 +158,11 @@ class BurgerBuilder extends React.Component {
             disabledInfo[key] = disabledInfo[key] <= 0;
         }
 
-        let orderSummary;
-        if (!this.state.error && this.state.purchasing) {
-            orderSummary = <OrderSummary
-                ingredients={this.state.ingredients}
-                purchaseCanceled={this.purchaseCancelHandler}
-                purchasedContinued={this.purchaseContinueHandler}
-                price={this.state.totalPrice} />;
-
-            if (this.state.loading) {
-                orderSummary = <Spinner />;
-            }
-        } else {
-            orderSummary = 'Network error';
-        }
-
+        let orderSummary = null;
         let burger = <Spinner />;
+
         if (this.state.ingredients) {
-            let burger = (
+            burger = (
                 <Aux>
                     <Burger ingredients={this.state.ingredients} />
                     <BuildControls
@@ -187,6 +174,21 @@ class BurgerBuilder extends React.Component {
                         price={this.state.totalPrice} />
                 </Aux>
             );
+
+            if (!this.state.error && this.state.purchasing) {
+                orderSummary = <OrderSummary
+                    ingredients={this.state.ingredients}
+                    purchaseCanceled={this.purchaseCancelHandler}
+                    purchasedContinued={this.purchaseContinueHandler}
+                    price={this.state.totalPrice} />;
+
+                if (this.state.loading) {
+                    orderSummary = <Spinner />;
+                }
+            } else {
+                orderSummary = 'Network error';
+            }
+
         }
 
         return (
