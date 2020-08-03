@@ -26,7 +26,8 @@ class BurgerBuilder extends React.Component {
         purchasable: false,
         purchasing: false,
         loading: false,
-        error: null
+        errorPost: null,
+        errorGet: null
     }
 
     componentDidMount() {
@@ -40,7 +41,7 @@ class BurgerBuilder extends React.Component {
             .then(data => {
                 this.setState({ ingredients: data });
             }).catch(err => {
-                this.setState({ error: err });
+                this.setState({ errorGet: err });
             });
     }
 
@@ -137,11 +138,9 @@ class BurgerBuilder extends React.Component {
         };
 
         fetch(config.url + 'orders.json', init)
-            .then(res => {
-
-            })
+            .then(res => {})
             .catch(err => {
-                this.setState({ error: err })
+                this.setState({ errorPost: err })
             })
             .finally(() => {
                 this.setState({
@@ -160,10 +159,8 @@ class BurgerBuilder extends React.Component {
             disabledInfo[key] = disabledInfo[key] <= 0;
         }
 
-        console.log(this.state.error)
-
-        let orderSummary = this.state.error ? 'Network error' : null;
-        let burger = this.state.error ?
+        let orderSummary = this.state.errorPost ? 'Network error' : null;
+        let burger = this.state.errorGet ?
             'Ingredients can\'t be loaded' : <Spinner />;
 
         if (this.state.ingredients) {
@@ -180,7 +177,7 @@ class BurgerBuilder extends React.Component {
                 </Aux>
             );
 
-            if (!this.state.error && this.state.purchasing) {
+            if (!this.state.errorPost && this.state.purchasing) {
                 orderSummary = <OrderSummary
                     ingredients={this.state.ingredients}
                     purchaseCanceled={this.purchaseCancelHandler}
@@ -197,7 +194,7 @@ class BurgerBuilder extends React.Component {
         return (
             <Aux>
                 <Modal
-                    show={this.state.purchasing || this.state.error}
+                    show={this.state.purchasing || this.state.errorPost}
                     modalClosed={this.purchaseCancelHandler}>
                     {orderSummary}
                 </Modal>
