@@ -21,17 +21,24 @@ class BurgerBuilder extends React.Component {
     // }
 
     state = {
-        ingredients: {
-            salad: 0,
-            bacon: 0,
-            cheese: 0,
-            meat: 0
-        },
+        ingredients: null,
         totalPrice: 4,
         purchasable: false,
         purchasing: false,
         loading: false,
         error: null
+    }
+
+    componentDidMount() {
+        const init = {
+            method: 'GET',
+            headers: { 'Content-Type': 'application/json' },
+        };
+
+        fetch('https://burger-builder-d0207.firebaseio.com/ingredients.json', init)
+            .then(res => {
+                this.setState({ ingredients: res.data });
+            });
     }
 
     updatePurchase(ingredients) {
