@@ -35,10 +35,12 @@ class BurgerBuilder extends React.Component {
             headers: { 'Content-Type': 'application/json' },
         };
 
-        fetch('https://burger-builder-d0207.firebaseio.com/ingredients.json', init)
+        fetch('https://burger-builder-d0207.firebaseio.com/ingredients.jso', init)
             .then(res => res.json())
             .then(data => {
                 this.setState({ ingredients: data });
+            }).catch(err => {
+                this.setState({ error: err });
             });
     }
 
@@ -158,8 +160,11 @@ class BurgerBuilder extends React.Component {
             disabledInfo[key] = disabledInfo[key] <= 0;
         }
 
-        let orderSummary = null;
-        let burger = <Spinner />;
+        console.log(this.state.error)
+
+        let orderSummary = this.state.error ? 'Network error' : null;
+        let burger = this.state.error ?
+            'Ingredients can\'t be loaded' : <Spinner />;
 
         if (this.state.ingredients) {
             burger = (
@@ -185,8 +190,6 @@ class BurgerBuilder extends React.Component {
                 if (this.state.loading) {
                     orderSummary = <Spinner />;
                 }
-            } else {
-                orderSummary = 'Network error';
             }
 
         }
