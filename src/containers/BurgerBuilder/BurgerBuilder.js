@@ -161,7 +161,7 @@ class BurgerBuilder extends React.Component {
 
         let orderSummary = this.state.errorPost ? 'Network error' : null;
         let burger = this.state.errorGet ?
-            'Ingredients can\'t be loaded' : <Spinner />;
+            'Network error. Ingredients can\'t be loaded' : <Spinner />;
 
         if (this.state.ingredients) {
             burger = (
