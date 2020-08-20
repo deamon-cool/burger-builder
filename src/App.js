@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 
 import Lauout from './containers/Layout/Layout';
 import BurgerBuilder from './containers/BurgerBuilder/BurgerBuilder';
@@ -13,7 +13,8 @@ class App extends React.Component {
         <div>
           <Lauout>
             <BurgerBuilder />
-            <Checkout />
+            <Route path='/checkout' component={Checkout} />
+            {/* <Checkout /> */}
           </Lauout>
         </div>
       </BrowserRouter>
