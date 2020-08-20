@@ -15,7 +15,7 @@ class Checkout extends React.Component {
     render() {
         return (
             <div>
-                <Checkout ingredients={this.state.ingredients} />
+                <CheckoutSummary ingredients={this.state.ingredients} />
             </div>
         );
     }
