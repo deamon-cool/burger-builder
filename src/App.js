@@ -16,8 +16,6 @@ class App extends React.Component {
               <Route path='/' exact component={BurgerBuilder} />
               <Route path='/checkout' exact component={Checkout} />
             </Switch>
-            {/* <BurgerBuilder /> */}
-            {/* <Checkout /> */}
           </Lauout>
         </div>
       </BrowserRouter>
