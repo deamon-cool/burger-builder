@@ -31,11 +31,9 @@ class OrderSummary extends React.Component {
                 <Button
                     btnType="Danger"
                     clicked={this.props.purchaseCanceled}>CANCEL</Button>
-                <Link to='/checkout'>
-                    <Button
-                        btnType="Success"
-                        clicked={this.props.purchasedContinued}>CONTINUE</Button>
-                </Link>
+                <Button
+                    btnType="Success"
+                    clicked={this.props.purchasedContinued}>CONTINUE</Button>
             </Aux>
         );
     }
