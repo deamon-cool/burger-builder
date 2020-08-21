@@ -126,6 +126,8 @@ class BurgerBuilder extends React.Component {
             deliverMethod: 'fastest'
         }
 
+        // this.props.history.push('/checkout');
+
         const init = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
