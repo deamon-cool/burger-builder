@@ -1,4 +1,6 @@
 import React from 'react';
+import { Route } from 'react-router-dom';
+
 import Aux from '../../high-order-components/Auxiliary';
 import Burger from '../../components/Burger/Burger';
 import BuildControls from '../../components/Burger/BuildControls/BuildControls';
@@ -126,25 +128,10 @@ class BurgerBuilder extends React.Component {
             deliverMethod: 'fastest'
         }
 
-        // this.props.history.push('/checkout');
-
-        const init = {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(order)
-        };
-
-        fetch(config.url + 'orders.json', init)
-            .then(res => {})
-            .catch(err => {
-                this.setState({ errorPost: err })
-            })
-            .finally(() => {
-                this.setState({
-                    loading: false,
-                    purchasing: false
-                });
-            });
+        this.props.history.push({
+            pathname: '/checkout',
+            state: { order: order }
+        });
     }
 
     render() {
