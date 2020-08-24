@@ -1,21 +1,47 @@
 import React from 'react';
 
 import CheckoutSummary from '../../components/Order/CheckoutSummary/CheckoutSummary';
+import config from '../../../config-fetch';
 
 class Checkout extends React.Component {
-    state = {
-        ingredients: {
-            salad: 1,
-            cheese: 1,
-            meat: 1,
-            bacon: 1
-        }
-    };
+    cancelHandler = () => {
+        this.props.history.push('/');
+    }
+
+    continueHandler = () => {
+        const init = {
+            method: 'post',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(this.props.location.state.order.ingredients)
+        };
+
+        fetch(config.url + 'orders.json', init)
+            .then(res => { })
+            .catch(err => { })
+            .finall(() => {
+
+            });
+
+        // fetch(config.url + 'orders.json', init)
+        //     .then(res => {})
+        //     .catch(err => {
+        //         this.setState({ errorPost: err })
+        //     })
+        //     .finally(() => {
+        //         this.setState({
+        //             loading: false,
+        //             purchasing: false
+        //         });
+        //     });
+    }
 
     render() {
         return (
             <div>
-                <CheckoutSummary ingredients={this.state.ingredients} />
+                <CheckoutSummary
+                    ingredients={this.props.location.state.order.ingredients}
+                    cancelHandler={this.cancelHandler}
+                    continueHandler={this.continueHandler} />
             </div>
         );
     }
