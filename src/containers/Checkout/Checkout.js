@@ -2,13 +2,20 @@ import React from 'react';
 
 import CheckoutSummary from '../../components/Order/CheckoutSummary/CheckoutSummary';
 import config from '../../config-fetch';
+import Spinner from '../../components/UI/Spinner/Spinner';
 
 class Checkout extends React.Component {
+    state = {
+        loading: false
+    };
+
     cancelHandler = () => {
         this.props.history.push('/');
     }
 
     continueHandler = () => {
+        this.setState({ loading: true });
+
         const init = {
             method: 'post',
             headers: { 'Content-Type': 'application/json' },
@@ -19,7 +26,7 @@ class Checkout extends React.Component {
             .then(res => { })
             .catch(err => { })
             .finally(() => {
-
+                this.setState({ loading: false });
             });
 
         // fetch(config.url + 'orders.json', init)
@@ -36,12 +43,19 @@ class Checkout extends React.Component {
     }
 
     render() {
+        let checkoutSummary =
+            <CheckoutSummary
+                ingredients={this.props.location.state.order.ingredients}
+                cancelHandler={this.cancelHandler}
+                continueHandler={this.continueHandler} />;
+
+        if (this.state.loading) {
+            checkoutSummary = <Spinner />
+        }
+
         return (
             <div>
-                <CheckoutSummary
-                    ingredients={this.props.location.state.order.ingredients}
-                    cancelHandler={this.cancelHandler}
-                    continueHandler={this.continueHandler} />
+                {checkoutSummary}
             </div>
         );
     }
