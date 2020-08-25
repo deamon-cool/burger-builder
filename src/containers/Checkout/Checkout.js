@@ -6,7 +6,8 @@ import Spinner from '../../components/UI/Spinner/Spinner';
 
 class Checkout extends React.Component {
     state = {
-        loading: false
+        loading: false,
+        errorPost: null
     };
 
     cancelHandler = () => {
@@ -24,7 +25,9 @@ class Checkout extends React.Component {
 
         fetch(config.url + 'orders.json', init)
             .then(res => { })
-            .catch(err => { })
+            .catch(err => {
+                this.setState({ errorPost: err });
+            })
             .finally(() => {
                 this.setState({ loading: false });
             });
@@ -39,6 +42,10 @@ class Checkout extends React.Component {
 
         if (this.state.loading) {
             checkoutSummary = <Spinner />
+        }
+
+        if (this.state.errorPost) {
+            checkoutSummary = 'Error network !';
         }
 
         return (
