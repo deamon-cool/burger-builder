@@ -1,7 +1,7 @@
 import React from 'react';
 
 import CheckoutSummary from '../../components/Order/CheckoutSummary/CheckoutSummary';
-import config from '../../../config-fetch';
+import config from '../../config-fetch';
 
 class Checkout extends React.Component {
     cancelHandler = () => {
@@ -18,7 +18,7 @@ class Checkout extends React.Component {
         fetch(config.url + 'orders.json', init)
             .then(res => { })
             .catch(err => { })
-            .finall(() => {
+            .finally(() => {
 
             });
 
