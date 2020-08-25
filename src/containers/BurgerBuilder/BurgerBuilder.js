@@ -111,8 +111,6 @@ class BurgerBuilder extends React.Component {
     }
 
     purchaseContinueHandler = () => {
-        // this.setState({ loading: true });
-
         const order = {
             ingredients: this.state.ingredients,
             price: this.state.totalPrice,
