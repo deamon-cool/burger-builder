@@ -28,18 +28,6 @@ class Checkout extends React.Component {
             .finally(() => {
                 this.setState({ loading: false });
             });
-
-        // fetch(config.url + 'orders.json', init)
-        //     .then(res => {})
-        //     .catch(err => {
-        //         this.setState({ errorPost: err })
-        //     })
-        //     .finally(() => {
-        //         this.setState({
-        //             loading: false,
-        //             purchasing: false
-        //         });
-        //     });
     }
 
     render() {
