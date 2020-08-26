@@ -24,8 +24,8 @@ class Checkout extends React.Component {
         return (
             <div>
                 <CheckoutSummary
-                    onCheckoutCancelled={this.props.checkoutCancellHandler}
-                    onCheckoutContinued={this.props.checkoutContinueHandler}
+                    onCheckoutCancelled={this.checkoutCancellHandler}
+                    onCheckoutContinued={this.checkoutContinueHandler}
                     ingredients={this.state.ingredients} />
             </div>
         );
