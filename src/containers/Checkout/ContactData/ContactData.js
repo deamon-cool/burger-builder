@@ -18,10 +18,10 @@ class ContactData extends React.Component {
             <div className={classes.ContactData}>
                 <h1>Enter your Contact</h1>
                 <form>
-                    <input type='text' name='name' placeholder='Name' />
-                    <input type='email' name='email' placeholder='Email' />
-                    <input type='text' name='street' placeholder='Street' />
-                    <input type='text' name='postal' placeholder='Postal Code' />
+                    <input className={classes.Input} type='text' name='name' placeholder='Name' />
+                    <input className={classes.Input} type='email' name='email' placeholder='Email' />
+                    <input className={classes.Input} type='text' name='street' placeholder='Street' />
+                    <input className={classes.Input} type='text' name='postal' placeholder='Postal Code' />
                     <Button btnType='Success'>ORDER</Button>
                 </form>
             </div>
