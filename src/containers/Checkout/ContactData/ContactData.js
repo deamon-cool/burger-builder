@@ -47,7 +47,6 @@ class ContactData extends React.Component {
             .catch(err => {
                 this.setState({ errorPost: err });
             })
-            .finally(() => {
                 this.setState({ loading: false });
             });
     }
