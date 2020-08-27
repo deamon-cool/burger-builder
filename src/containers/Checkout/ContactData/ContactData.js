@@ -44,7 +44,7 @@ class ContactData extends React.Component {
         fetch(config.url + 'orders.json', init)
             .then(res => {})
             .catch(err => {
-                this.setState({ errorPost: err })
+                this.setState({ errorPost: err });
             })
             .finally(() => {
                 this.setState({
