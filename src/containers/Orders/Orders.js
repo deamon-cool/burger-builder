@@ -18,8 +18,18 @@ class Orders extends React.Component {
         fetch(config.url + 'orders.json', init)
             .then(res => res.json())
             .then(data => {
-                console.log(data);
-                this.setState({ loading: false });
+                const fetchedOrders = [];
+                for (let key in data) {
+                    fetchedOrders.push({
+                        ...data[key],
+                        id: key
+                    });
+                }
+
+                this.setState({
+                    loading: false,
+                    orders: fetchedOrders
+                });
             })
             .catch(err => {
                 this.setState({ loading: false });
