@@ -6,8 +6,8 @@ const input = (props) => {
     switch (props.inputType) {
         case ('input'):
             inputElement: <input />
-        default:
-
+        case('textarea'):
+            inputElement: <textarea />
     }
 
     return (
