@@ -5,9 +5,13 @@ const input = (props) => {
 
     switch (props.inputType) {
         case ('input'):
-            inputElement: <input />
-        case('textarea'):
-            inputElement: <textarea />
+            inputElement = <input />;
+            break;
+        case ('textarea'):
+            inputElement = <textarea />
+            break;
+        default:
+            inputElement = <input />;
     }
 
     return (
