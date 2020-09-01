@@ -5,19 +5,19 @@ const input = (props) => {
 
     switch (props.inputType) {
         case ('input'):
-            inputElement = <input />;
+            inputElement = <input {...props} />;
             break;
         case ('textarea'):
-            inputElement = <textarea />
+            inputElement = <textarea {...props} />
             break;
         default:
-            inputElement = <input />;
+            inputElement = <input {...props} />;
     }
 
     return (
         <div>
             <label>{props.label}</label>
-
+            {inputElement}
         </div>
     );
 }
