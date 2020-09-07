@@ -68,9 +68,15 @@ class ContactData extends React.Component {
 
         this.setState({ loading: true });
 
+        const formData = {};
+        for(let formElementID in this.state.orderForm) {
+            formData[formElementID] = this.state.orderForm[formElementID].value;
+        }
+
         const order = {
             ingredients: this.props.ingredients,
             price: this.props.price,
+            orderData: formData
         }
 
         const init = {
@@ -114,7 +120,7 @@ class ContactData extends React.Component {
         }
 
         let form = (
-            <form>
+            <form onSubmit={this.orderHandler}>
                 {formElementsArray.map(formElement => (
                     <Input
                         key={formElement.id}
@@ -123,7 +129,7 @@ class ContactData extends React.Component {
                         value={formElement.config.value}
                         changed={(event) => this.inputChangedHandler(event, formElement.id)} />
                 ))}
-                <Button btnType='Success' clicked={this.orderHandler}>ORDER</Button>
+                <Button btnType='Success'>ORDER</Button>
             </form>
         );
         if (this.state.loading) {
