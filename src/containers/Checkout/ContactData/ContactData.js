@@ -90,7 +90,18 @@ class ContactData extends React.Component {
     }
 
     inputChangedHandler = (event, inputID) => {
-        console.log(event.target.value)
+        const updatedOrderForm = {
+            ...this.state.orderForm
+        };
+        const updatedFormElement = {
+            ...updatedOrderForm[inputID]
+        };
+
+        updatedFormElement.value = event.target.value;
+        updatedOrderForm[inputID] = updatedFormElement;
+        this.setState({
+            orderForm: updatedOrderForm
+        });
     }
 
     render() {
