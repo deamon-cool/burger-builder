@@ -42,6 +42,8 @@ class ContactData extends React.Component {
                 value: '',
                 validation: {
                     required: true,
+                    minLength: 5,
+                    maxLength: 5
                 },
                 valid: false
             },
@@ -89,7 +91,7 @@ class ContactData extends React.Component {
         this.setState({ loading: true });
 
         const formData = {};
-        for(let formElementID in this.state.orderForm) {
+        for (let formElementID in this.state.orderForm) {
             formData[formElementID] = this.state.orderForm[formElementID].value;
         }
 
@@ -122,6 +124,11 @@ class ContactData extends React.Component {
             isValid = value.trim() !== '';
         }
 
+        if (rules.minLength && rules.maxLength) {
+            isValid = (value.length >= rules.minLength) &&
+                (value.length <= rules.maxLength);
+        }
+
         return isValid;
     }
 
@@ -134,7 +141,11 @@ class ContactData extends React.Component {
         };
 
         updatedFormElement.value = event.target.value;
+        updatedFormElement.valid = this.checkValidity(updatedFormElement.value, updatedFormElement.validation);
         updatedOrderForm[inputID] = updatedFormElement;
+
+        console.log(updatedFormElement.valid)
+
         this.setState({
             orderForm: updatedOrderForm
         });
