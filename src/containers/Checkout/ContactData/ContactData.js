@@ -15,7 +15,11 @@ class ContactData extends React.Component {
                     type: 'text',
                     placeholder: 'Your Name'
                 },
-                value: ''
+                value: '',
+                validation: {
+                    required: true,
+                },
+                valid: false
             },
             street: {
                 elementType: 'input',
@@ -23,7 +27,11 @@ class ContactData extends React.Component {
                     type: 'text',
                     placeholder: 'Your Street'
                 },
-                value: ''
+                value: '',
+                validation: {
+                    required: true,
+                },
+                valid: false
             },
             zipCode: {
                 elementType: 'input',
@@ -31,7 +39,11 @@ class ContactData extends React.Component {
                     type: 'text',
                     placeholder: 'ZIP Code'
                 },
-                value: ''
+                value: '',
+                validation: {
+                    required: true,
+                },
+                valid: false
             },
             country: {
                 elementType: 'input',
@@ -39,7 +51,11 @@ class ContactData extends React.Component {
                     type: 'text',
                     placeholder: 'Country'
                 },
-                value: ''
+                value: '',
+                validation: {
+                    required: true,
+                },
+                valid: false
             },
             email: {
                 elementType: 'input',
@@ -47,7 +63,11 @@ class ContactData extends React.Component {
                     type: 'email',
                     placeholder: 'Your Email'
                 },
-                value: ''
+                value: '',
+                validation: {
+                    required: true,
+                },
+                valid: false
             },
             deliveryMethod: {
                 elementType: 'select',
