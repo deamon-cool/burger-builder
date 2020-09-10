@@ -84,7 +84,8 @@ class ContactData extends React.Component {
                         { value: 'cheapest', displayValue: 'Cheapest' },
                     ]
                 },
-                value: ''
+                value: '',
+                valid: true
             }
         },
         formIsValid: false,
