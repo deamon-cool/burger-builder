@@ -4,9 +4,12 @@ import classes from './Input.css';
 const input = (props) => {
     let inputElement = null;
     const inputClasses = [classes.InputElement];
+    let warning = null;
 
     if (props.invalid && props.shouldValidate && props.touched) {
         inputClasses.push(classes.Invalid);
+        warning = <div
+            className={classes.Warning}>You typed wrong {props.elementType}</div>
     }
 
     switch (props.elementType) {
@@ -50,6 +53,7 @@ const input = (props) => {
         <div className={classes.Input}>
             <label className={classes.Label}>{props.label}</label>
             {inputElement}
+            {warning}
         </div>
     );
 }
