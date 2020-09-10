@@ -85,6 +85,7 @@ class ContactData extends React.Component {
                     ]
                 },
                 value: '',
+                validation: {},
                 valid: true
             }
         },
