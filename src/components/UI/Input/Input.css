@@ -30,3 +30,9 @@
     border          : 1px solid red;
     background-color: #FDA49a;
 }
+
+.Warning {
+    color: red;
+    font-size: 12px;
+    margin-top: 2px;
+}
