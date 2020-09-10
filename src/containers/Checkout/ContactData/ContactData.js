@@ -87,6 +87,7 @@ class ContactData extends React.Component {
                 value: ''
             }
         },
+        formIsValid: false,
         loading: false
     }
 
@@ -153,8 +154,17 @@ class ContactData extends React.Component {
         updatedFormElement.touched = true;
         updatedOrderForm[inputID] = updatedFormElement;
 
+        let formIsValid = true;
+        for (let inID in updatedOrderForm) {
+            console.log(inID)
+            formIsValid = updatedOrderForm[inID].valid && formIsValid;
+        }
+
+        console.log(formIsValid)
+
         this.setState({
-            orderForm: updatedOrderForm
+            orderForm: updatedOrderForm,
+            formIsValid: formIsValid
         });
     }
 
@@ -180,7 +190,9 @@ class ContactData extends React.Component {
                         touched={formElement.config.touched}
                         changed={(event) => this.inputChangedHandler(event, formElement.id)} />
                 ))}
-                <Button btnType='Success'>ORDER</Button>
+                <Button
+                    btnType='Success'
+                    disabled={!this.state.formIsValid}>ORDER</Button>
             </form>
         );
         if (this.state.loading) {
