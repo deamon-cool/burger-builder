@@ -157,11 +157,8 @@ class ContactData extends React.Component {
 
         let formIsValid = true;
         for (let inID in updatedOrderForm) {
-            console.log(inID)
             formIsValid = updatedOrderForm[inID].valid && formIsValid;
         }
-
-        console.log(formIsValid)
 
         this.setState({
             orderForm: updatedOrderForm,
