@@ -180,4 +180,17 @@ class BurgerBuilder extends React.Component {
     }
 }
 
+const mapStateToProps = state => {
+    return {
+        ings: state.ingredients
+    };
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onIngredientAdded: (ingName) => dispatch({ type: actionTypes.ADD_INGREDIENT, ingredientName: ingName }),
+        onIngredientRemoved: (ingName) => dispatch({ type: actionTypes.REMOVE_INGREDIENT, ingredientName: ingName }),
+    };
+};
+
 export default BurgerBuilder;
