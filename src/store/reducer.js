@@ -1,4 +1,3 @@
-import { act } from 'react-dom/test-utils';
 import * as actionTypes from './actions';
 
 const initState = {
