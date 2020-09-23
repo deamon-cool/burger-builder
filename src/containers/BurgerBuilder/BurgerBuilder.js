@@ -193,4 +193,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default BurgerBuilder;
+export default connect(mapStateToProps, mapDispatchToProps)(BurgerBuilder);
