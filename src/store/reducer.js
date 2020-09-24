@@ -10,6 +10,13 @@ const initState = {
     totalPrice: 4,
 };
 
+const INGREDIENT_PRICES = {
+    salad: 0.3,
+    cheese: 0.7,
+    meat: 1.4,
+    bacon: 0.8
+}
+
 const reducer = (state = initState, action) => {
     console.log('reducer')
     switch (action.type) {
