@@ -127,7 +127,7 @@ class BurgerBuilder extends React.Component {
 
     render() {
         const disabledInfo = {
-            ...this.state.ingredients
+            ...this.props.ings
         };
 
         for (let key in disabledInfo) {
@@ -138,10 +138,10 @@ class BurgerBuilder extends React.Component {
         let burger = this.state.errorGet ?
             'Network error. Ingredients can\'t be loaded' : <Spinner />;
 
-        if (this.state.ingredients) {
+        if (this.props.ings) {
             burger = (
                 <Aux>
-                    <Burger ingredients={this.state.ingredients} />
+                    <Burger ingredients={this.props.ings} />
                     <BuildControls
                         ingredientAdded={this.addIngredientHandler}
                         ingredientRemoved={this.removeIngredientHandler}
@@ -154,7 +154,7 @@ class BurgerBuilder extends React.Component {
 
             if (!this.state.errorPost && this.state.purchasing) {
                 orderSummary = <OrderSummary
-                    ingredients={this.state.ingredients}
+                    ingredients={this.props.ings}
                     purchaseCanceled={this.purchaseCancelHandler}
                     purchasedContinued={this.purchaseContinueHandler}
                     price={this.state.totalPrice} />;
