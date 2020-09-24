@@ -10,16 +10,8 @@ import config from '../../config-fetch';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import * as actionTypes from '../../store/actions';
 
-const INGREDIENT_PRICES = {
-    salad: 0.3,
-    cheese: 0.7,
-    meat: 1.4,
-    bacon: 0.8
-}
-
 class BurgerBuilder extends React.Component {
     state = {
-        totalPrice: 4,
         purchasable: false,
         purchasing: false,
         loading: false,
