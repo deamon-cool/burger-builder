@@ -126,6 +126,7 @@ class BurgerBuilder extends React.Component {
     }
 
     render() {
+        console.log(this.props.ings)
         const disabledInfo = {
             ...this.props.ings
         };
@@ -180,12 +181,14 @@ class BurgerBuilder extends React.Component {
 }
 
 const mapStateToProps = state => {
+    console.log('mapStateToProps')
     return {
         ings: state.ingredients
     };
 };
 
 const mapDispatchToProps = dispatch => {
+    console.log('mapDispatchToProps')
     return {
         onIngredientAdded: (ingName) => dispatch({ type: actionTypes.ADD_INGREDIENT, ingredientName: ingName }),
         onIngredientRemoved: (ingName) => dispatch({ type: actionTypes.REMOVE_INGREDIENT, ingredientName: ingName }),
