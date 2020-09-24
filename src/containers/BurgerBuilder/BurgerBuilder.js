@@ -108,7 +108,7 @@ class BurgerBuilder extends React.Component {
             queryParams.push(encodeURIComponent(i) +
                 '=' + encodeURIComponent(this.state.ingredients[i]));
         }
-        queryParams.push('price=' + this.state.totalPrice);
+        queryParams.push('price=' + this.props.totalPrice);
         const queryString = queryParams.join('&');
 
         this.props.history.push({
@@ -141,7 +141,7 @@ class BurgerBuilder extends React.Component {
                         disabled={disabledInfo}
                         purchasable={this.state.purchasable}
                         ordered={this.purchaseHandler}
-                        price={this.state.totalPrice} />
+                        price={this.props.totalPrice} />
                 </Aux>
             );
 
@@ -150,7 +150,7 @@ class BurgerBuilder extends React.Component {
                     ingredients={this.props.ings}
                     purchaseCanceled={this.purchaseCancelHandler}
                     purchasedContinued={this.purchaseContinueHandler}
-                    price={this.state.totalPrice} />;
+                    price={this.props.totalPrice} />;
 
                 if (this.state.loading) {
                     orderSummary = <Spinner />;
@@ -175,7 +175,8 @@ class BurgerBuilder extends React.Component {
 const mapStateToProps = state => {
     console.log('mapStateToProps')
     return {
-        ings: state.ingredients
+        ings: state.ingredients,
+        totalPrice: state.totalPrice
     };
 };
 
