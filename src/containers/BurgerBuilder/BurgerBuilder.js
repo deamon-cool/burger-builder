@@ -46,50 +46,50 @@ class BurgerBuilder extends React.Component {
         this.setState({ purchasable: sum > 0 })
     }
 
-    addIngredientHandler = (type) => {
-        const oldCount = this.state.ingredients[type];
-        const updatedCounted = oldCount + 1;
-        const updatedIngredients = {
-            ...this.state.ingredients
-        }
-        updatedIngredients[type] = updatedCounted;
+    // addIngredientHandler = (type) => {
+    //     const oldCount = this.state.ingredients[type];
+    //     const updatedCounted = oldCount + 1;
+    //     const updatedIngredients = {
+    //         ...this.state.ingredients
+    //     }
+    //     updatedIngredients[type] = updatedCounted;
 
-        const priceAddition = INGREDIENT_PRICES[type];
-        const oldPrice = this.state.totalPrice;
-        const newPrice = oldPrice + priceAddition;
+    //     const priceAddition = INGREDIENT_PRICES[type];
+    //     const oldPrice = this.state.totalPrice;
+    //     const newPrice = oldPrice + priceAddition;
 
-        this.setState({
-            ingredients: updatedIngredients,
-            totalPrice: newPrice
-        })
+    //     this.setState({
+    //         ingredients: updatedIngredients,
+    //         totalPrice: newPrice
+    //     })
 
-        this.updatePurchase(updatedIngredients);
-    }
+    //     this.updatePurchase(updatedIngredients);
+    // }
 
-    removeIngredientHandler = (type) => {
-        const oldCount = this.state.ingredients[type];
+    // removeIngredientHandler = (type) => {
+    //     const oldCount = this.state.ingredients[type];
 
-        if (oldCount <= 0) {
-            return;
-        }
+    //     if (oldCount <= 0) {
+    //         return;
+    //     }
 
-        const updatedCounted = oldCount - 1;
-        const updatedIngredients = {
-            ...this.state.ingredients
-        }
-        updatedIngredients[type] = updatedCounted;
+    //     const updatedCounted = oldCount - 1;
+    //     const updatedIngredients = {
+    //         ...this.state.ingredients
+    //     }
+    //     updatedIngredients[type] = updatedCounted;
 
-        const priceDeduction = INGREDIENT_PRICES[type];
-        const oldPrice = this.state.totalPrice;
-        const newPrice = oldPrice - priceDeduction;
+    //     const priceDeduction = INGREDIENT_PRICES[type];
+    //     const oldPrice = this.state.totalPrice;
+    //     const newPrice = oldPrice - priceDeduction;
 
-        this.setState({
-            ingredients: updatedIngredients,
-            totalPrice: newPrice
-        })
+    //     this.setState({
+    //         ingredients: updatedIngredients,
+    //         totalPrice: newPrice
+    //     })
 
-        this.updatePurchase(updatedIngredients);
-    }
+    //     this.updatePurchase(updatedIngredients);
+    // }
 
     purchaseHandler = () => {
         this.setState({ purchasing: true });
