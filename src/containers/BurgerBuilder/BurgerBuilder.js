@@ -18,20 +18,20 @@ class BurgerBuilder extends React.Component {
         errorGet: null
     }
 
-    componentDidMount() {
-        // const init = {
-        //     method: 'GET',
-        //     headers: { 'Content-Type': 'application/json' },
-        // };
+    // componentDidMount() {
+    //     const init = {
+    //         method: 'GET',
+    //         headers: { 'Content-Type': 'application/json' },
+    //     };
 
-        // fetch(config.url + 'ingredients.json', init)
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         this.setState({ ingredients: data });
-        //     }).catch(err => {
-        //         this.setState({ errorGet: err });
-        //     });
-    }
+    //     fetch(config.url + 'ingredients.json', init)
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             this.setState({ ingredients: data });
+    //         }).catch(err => {
+    //             this.setState({ errorGet: err });
+    //         });
+    // }
 
     updatePurchase(ingredients) {
         const sum = Object.keys(ingredients)
