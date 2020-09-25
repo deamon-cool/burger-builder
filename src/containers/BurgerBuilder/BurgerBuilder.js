@@ -12,7 +12,6 @@ import * as actionTypes from '../../store/actions';
 
 class BurgerBuilder extends React.Component {
     state = {
-        purchasable: false,
         purchasing: false,
         loading: false,
         errorPost: null,
