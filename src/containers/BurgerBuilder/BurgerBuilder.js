@@ -42,7 +42,7 @@ class BurgerBuilder extends React.Component {
                 return sum + el;
             }, 0);
 
-        this.setState({ purchasable: sum > 0 })
+        return sum > 0;
     }
 
     // addIngredientHandler = (type) => {
@@ -138,7 +138,7 @@ class BurgerBuilder extends React.Component {
                         ingredientAdded={this.props.onIngredientAdded}
                         ingredientRemoved={this.props.onIngredientRemoved}
                         disabled={disabledInfo}
-                        purchasable={this.state.purchasable}
+                        purchasable={this.updatePurchase(this.props.ings)}
                         ordered={this.purchaseHandler}
                         price={this.props.totalPrice} />
                 </Aux>
