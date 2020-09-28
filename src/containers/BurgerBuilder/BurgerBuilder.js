@@ -6,7 +6,6 @@ import Burger from '../../components/Burger/Burger';
 import BuildControls from '../../components/Burger/BuildControls/BuildControls';
 import Modal from '../../components/UI/Modal/Modal';
 import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary';
-import config from '../../config-fetch';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import * as burgerBuilderActions from '../../store/actions/index';
 
@@ -18,20 +17,9 @@ class BurgerBuilder extends React.Component {
         errorGet: null
     }
 
-    // componentDidMount() {
-    //     const init = {
-    //         method: 'GET',
-    //         headers: { 'Content-Type': 'application/json' },
-    //     };
+    componentDidMount() {
 
-    //     fetch(config.url + 'ingredients.json', init)
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             this.setState({ ingredients: data });
-    //         }).catch(err => {
-    //             this.setState({ errorGet: err });
-    //         });
-    // }
+    }
 
     updatePurchase(ingredients) {
         const sum = Object.keys(ingredients)
