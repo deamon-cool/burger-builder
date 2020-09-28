@@ -117,7 +117,7 @@ class BurgerBuilder extends React.Component {
                 </Aux>
             );
 
-            if (!this.state.errorPost && this.state.purchasing) {
+            if (!this.props.error && this.state.purchasing) {
                 orderSummary = <OrderSummary
                     ingredients={this.props.ings}
                     purchaseCanceled={this.purchaseCancelHandler}
@@ -130,7 +130,7 @@ class BurgerBuilder extends React.Component {
         return (
             <Aux>
                 <Modal
-                    show={this.state.purchasing || this.state.errorPost}
+                    show={this.state.purchasing || this.props.error}
                     modalClosed={this.purchaseCancelHandler}>
                     {orderSummary}
                 </Modal>
