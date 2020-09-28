@@ -12,9 +12,6 @@ import * as burgerBuilderActions from '../../store/actions/index';
 class BurgerBuilder extends React.Component {
     state = {
         purchasing: false,
-        loading: false,
-        errorPost: null,
-        errorGet: null
     }
 
     componentDidMount() {
@@ -127,10 +124,6 @@ class BurgerBuilder extends React.Component {
                     purchaseCanceled={this.purchaseCancelHandler}
                     purchasedContinued={this.purchaseContinueHandler}
                     price={this.props.totalPrice} />;
-
-                if (this.state.loading) {
-                    orderSummary = <Spinner />;
-                }
             }
 
         }
