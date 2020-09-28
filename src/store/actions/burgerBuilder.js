@@ -1,4 +1,5 @@
 import * as actionTypes from './actionTypes';
+import config from '../../config-fetch';
 
 export const addIngredient = (name) => {
     return {
@@ -12,7 +13,7 @@ export const removeIngredinet = (name) => {
         type: actionTypes.REMOVE_INGREDIENT,
         ingredientName: name
     };
-}}
+}
 
 export const setIngredient = (ingedients) => {
     return {
@@ -20,3 +21,20 @@ export const setIngredient = (ingedients) => {
         ingredients: ingedients
     };
 }
+
+export const fetchInitIngredient = () => {
+    return dispatch => {
+        const init = {
+            method: 'GET',
+            headers: { 'Content-Type': 'application/json' },
+        };
+
+        fetch(config.url + 'ingredients.json', init)
+            .then(res => res.json())
+            .then(data => {
+                dispatch(setIngredient(data));
+            }).catch(err => {
+
+            });
+    };
+};
