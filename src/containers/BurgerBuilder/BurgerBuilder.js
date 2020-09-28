@@ -8,7 +8,7 @@ import Modal from '../../components/UI/Modal/Modal';
 import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary';
 import config from '../../config-fetch';
 import Spinner from '../../components/UI/Spinner/Spinner';
-import * as actionTypes from '../../store/actions/actionTypes';
+import * as burgerBuilderActions from '../../store/actions/index';
 
 class BurgerBuilder extends React.Component {
     state = {
@@ -171,8 +171,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     console.log('mapDispatchToProps')
     return {
-        onIngredientAdded: (ingName) => dispatch({ type: actionTypes.ADD_INGREDIENT, ingredientName: ingName }),
-        onIngredientRemoved: (ingName) => dispatch({ type: actionTypes.REMOVE_INGREDIENT, ingredientName: ingName }),
+        onIngredientAdded: (ingName) => dispatch(burgerBuilderActions.addIngredient),
+        onIngredientRemoved: (ingName) => dispatch(burgerBuilderActions.removeIngredinet),
     };
 };
 
