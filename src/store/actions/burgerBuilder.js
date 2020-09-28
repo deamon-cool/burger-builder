@@ -13,7 +13,7 @@ export const removeIngredinet = (name) => {
         type: actionTypes.REMOVE_INGREDIENT,
         ingredientName: name
     };
-}
+};
 
 export const setIngredient = (ingedients) => {
     return {
