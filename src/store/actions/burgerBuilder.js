@@ -40,7 +40,7 @@ export const fetchInitIngredient = () => {
             .then(data => {
                 dispatch(setIngredient(data));
             }).catch(err => {
-
+                dispatch(fetchIngredientsFailed());
             });
     };
 };
