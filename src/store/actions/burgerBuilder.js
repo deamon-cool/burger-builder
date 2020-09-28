@@ -7,7 +7,7 @@ export const addIngredient = (name) => {
     };
 }
 
-export const removeIngredinet = (name) {
+export const removeIngredinet = (name) => {
     return {
         type: actionTypes.REMOVE_INGREDIENT,
         ingredientName: name
