@@ -6,7 +6,7 @@ export const addIngredient = (name) => {
         type: actionTypes.ADD_INGREDIENT,
         ingredientName: name
     };
-}
+};
 
 export const removeIngredinet = (name) => {
     return {
