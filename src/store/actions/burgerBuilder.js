@@ -20,7 +20,13 @@ export const setIngredient = (ingedients) => {
         type: actionTypes.SET_INGREDIENTS,
         ingredients: ingedients
     };
-}
+};
+
+export const fetchIngredientsFailed = () => {
+    return {
+        type: actionTypes.FETCH_INGREDIENTS_FAILED
+    };
+};
 
 export const fetchInitIngredient = () => {
     return dispatch => {
