@@ -28,7 +28,7 @@ export const fetchIngredientsFailed = () => {
     };
 };
 
-export const fetchInitIngredient = () => {
+export const fetchInitIngredients = () => {
     return dispatch => {
         const init = {
             method: 'GET',
