@@ -141,7 +141,8 @@ const mapStateToProps = state => {
     console.log('mapStateToProps')
     return {
         ings: state.ingredients,
-        totalPrice: state.totalPrice
+        totalPrice: state.totalPrice,
+        error: state.error
     };
 };
 
