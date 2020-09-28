@@ -99,7 +99,7 @@ class BurgerBuilder extends React.Component {
             disabledInfo[key] = disabledInfo[key] <= 0;
         }
 
-        let orderSummary = null;
+        let orderSummary = this.props.error ? 'Network error' : null;
         let burger = this.props.error ?
             'Network error. Ingredients can\'t be loaded' : <Spinner />;
 
