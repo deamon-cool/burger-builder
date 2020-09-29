@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 
 import Button from '../../../components/UI/Button/Button';
 import classes from './ContactData.css';
-import config from '../../../config-fetch';
 import Spinner from '../../../components/UI/Spinner/Spinner';
 import Input from '../../../components/UI/Input/Input';
 
@@ -96,8 +95,6 @@ class ContactData extends React.Component {
 
     orderHandler = (event) => {
         event.preventDefault();
-
-        this.setState({ loading: true });
 
         const formData = {};
         for (let formElementID in this.state.orderForm) {
