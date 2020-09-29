@@ -32,9 +32,9 @@ export const purchaseBurger = (orderData) => {
         };
 
         fetch(config.url + 'orders.json', init)
-            .then(res => {
-                console.log(res.data);
-                dispatch(purchaseBurgerSuccess(res.data, orderData));
+            .then(res => res.json())
+            .then(data => {
+                dispatch(purchaseBurgerSuccess(data.name, orderData));
             })
             .catch(err => {
                 dispatch(purchaseBurgerFail(err));
