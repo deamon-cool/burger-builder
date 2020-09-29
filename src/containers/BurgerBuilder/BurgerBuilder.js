@@ -141,7 +141,6 @@ class BurgerBuilder extends React.Component {
 }
 
 const mapStateToProps = state => {
-    console.log('mapStateToProps')
     return {
         ings: state.burgerBuilder.ingredients,
         totalPrice: state.burgerBuilder.totalPrice,
@@ -150,7 +149,6 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => {
-    console.log('mapDispatchToProps')
     return {
         onIngredientAdded: (ingName) => dispatch(burgerBuilderActions.addIngredient(ingName)),
         onIngredientRemoved: (ingName) => dispatch(burgerBuilderActions.removeIngredinet(ingName)),
