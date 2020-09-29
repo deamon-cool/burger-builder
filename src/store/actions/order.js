@@ -24,6 +24,7 @@ export const purchaseBurgerStart = () => {
 
 export const purchaseBurger = (orderData) => {
     return dispatch => {
+        dispatch(purchaseBurgerStart());
         const init = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
