@@ -26,11 +26,10 @@ export const purchaseBurgerStart = (orderData) => {
 
         fetch(config.url + 'orders.json', init)
             .then(res => {
-                this.setState({ loading: false });
-                this.props.history.push('/');
+                dispatch(purchaseBurgerSuccess());
             })
             .catch(err => {
-                this.setState({ loading: false });
+                dispatch(purchaseBurgerFail());
             });
     };
 };
