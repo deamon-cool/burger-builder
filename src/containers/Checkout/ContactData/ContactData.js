@@ -108,20 +108,7 @@ class ContactData extends React.Component {
             orderData: formData
         }
 
-        // const init = {
-        //     method: 'POST',
-        //     headers: { 'Content-Type': 'application/json' },
-        //     body: JSON.stringify(order)
-        // };
-
-        // fetch(config.url + 'orders.json', init)
-        //     .then(res => {
-        //         this.setState({ loading: false });
-        //         this.props.history.push('/');
-        //     })
-        //     .catch(err => {
-        //         this.setState({ loading: false });
-        //     });
+        this.props.onOrderBurger(order);
     }
 
     checkValidity = (value, rules) => {
@@ -213,4 +200,10 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(ContactData);
+const mapDispatchToProps = dispatch => {
+    return {
+        onOrderBurger: (orderData) => dispatch(actions.purchaseBurgerStart(orderData))
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ContactData);
