@@ -16,7 +16,11 @@ export const purchaseBurgerFail = (error) => {
     };
 };
 
-export const purchaseBurgerStart = (orderData) => {
+export const purchaseBurgerStart = () => {
+
+};
+
+export const purchaseBurger = (orderData) => {
     return dispatch => {
         const init = {
             method: 'POST',
