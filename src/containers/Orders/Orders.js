@@ -1,6 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import Order from '../../components/Order/Order';
+import actions from '../../store/actions/index';
 
 class Orders extends React.Component {
     state = {
