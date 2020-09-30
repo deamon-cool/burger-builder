@@ -9,33 +9,6 @@ class Orders extends React.Component {
         loading: true
     };
 
-    componentDidMount() {
-        const init = {
-            method: 'get',
-            headers: { 'Content-Type': 'application/json' }
-        };
-
-        fetch(config.url + 'orders.json', init)
-            .then(res => res.json())
-            .then(data => {
-                const fetchedOrders = [];
-                for (let key in data) {
-                    fetchedOrders.push({
-                        ...data[key],
-                        id: key
-                    });
-                }
-
-                this.setState({
-                    loading: false,
-                    orders: fetchedOrders
-                });
-            })
-            .catch(err => {
-                this.setState({ loading: false });
-            });
-    }
-
     render() {
         return (
             <div>
