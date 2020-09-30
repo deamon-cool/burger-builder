@@ -22,4 +22,17 @@ class Orders extends React.Component {
     }
 }
 
-export default Orders;
+const mapStateToProps = state=>{
+    return {
+        orders: state.order.orders,
+        loading: state.loading
+    };
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onFetchOrders: () => dispatch(actions.fetchOrders())
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Orders);
