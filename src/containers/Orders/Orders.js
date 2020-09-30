@@ -1,5 +1,4 @@
 import React from 'react';
-import config from '../../config-fetch';
 
 import Order from '../../components/Order/Order';
 
