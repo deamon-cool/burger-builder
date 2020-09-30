@@ -113,4 +113,16 @@ class Auth extends React.Component {
     }
 }
 
-export default Auth;
+const mapStateToProps = state => {
+    return {
+
+    };
+};
+
+const mapDispatchToProps = state => {
+    return {
+
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Auth);
