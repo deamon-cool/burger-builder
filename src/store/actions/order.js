@@ -70,6 +70,8 @@ export const fetchOrdersStart = () => {
 
 export const fetchOrders = () => {
     return dispatch => {
+        dispatch(fetchOrdersStart());
+
         const init = {
             method: 'get',
             headers: { 'Content-Type': 'application/json' }
