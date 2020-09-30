@@ -69,5 +69,28 @@ export const fetchOrdersStart = () => {
 };
 
 export const fetchOrders = () => {
+    return dispatch => {
+        const init = {
+            method: 'get',
+            headers: { 'Content-Type': 'application/json' }
+        };
+
+        fetch(config.url + 'orders.json', init)
+            .then(res => res.json())
+            .then(data => {
+                const fetchedOrders = [];
+                for (let key in data) {
+                    fetchedOrders.push({
+                        ...data[key],
+                        id: key
+                    });
+                }
+
+                dispatch(fetchOrdersSuccess(fetchedOrders));
+            })
+            .catch(err => {
+                dispatch(fetchOrdersFail(err));
+            });
+    }
 
 };
