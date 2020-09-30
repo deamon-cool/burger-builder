@@ -6,7 +6,7 @@ export const authStart = () => {
     };
 };
 
-export const authSucces = (authData) => {
+export const authSuccess = (authData) => {
     return {
         type: actionTypes.AUTH_SUCCESS,
         authData: authData
@@ -40,7 +40,7 @@ export const auth = (email, password) => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                dispatch(authSucces(data));
+                dispatch(authSuccess(data));
             }).catch(err => {
                 console.log(err);
                 dispatch(authFail(err));
