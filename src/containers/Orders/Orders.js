@@ -38,7 +38,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onFetchOrders: () => dispatch(actions.fetchOrders())
+        onFetchOrders: (token) => dispatch(actions.fetchOrders(token))
     };
 }
 
