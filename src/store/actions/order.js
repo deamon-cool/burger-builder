@@ -31,7 +31,7 @@ export const purchaseBurger = (orderData, token) => {
             body: JSON.stringify(orderData)
         };
 
-        fetch(config.url + 'orders.json', init)
+        fetch(config.url + 'orders.json?auth=' + token, init)
             .then(res => res.json())
             .then(data => {
                 dispatch(purchaseBurgerSuccess(data.name, orderData));
