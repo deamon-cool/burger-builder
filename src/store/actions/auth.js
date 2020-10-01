@@ -46,7 +46,12 @@ export const auth = (email, password, isSignup) => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                dispatch(authSuccess(data));
+
+                if (data.error) {
+                    dispatch(authFail(data.error));
+                } else {
+                    dispatch(authSuccess(data));
+                }
             }).catch(err => {
                 console.log(err);
                 dispatch(authFail(err));
