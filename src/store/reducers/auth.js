@@ -8,10 +8,14 @@ const initState = {
     loading: false
 };
 
+const authStart = (state, action) => {
+    return updateObject(state, { error: null, loading: true });
+};
+
 const reducer = (state = initState, action) => {
     switch (action.type) {
         case actionTypes.AUTH_START:
-            return updateObject(state, { error: null, loading: true });
+            return authStart(state, action);
         case actionTypes.AUTH_SUCCESS:
             return {
 
