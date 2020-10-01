@@ -32,7 +32,7 @@ class Orders extends React.Component {
 const mapStateToProps = state => {
     return {
         orders: state.order.orders,
-        loading: state.loading
+        loading: state.order.loading,
     };
 };
 
