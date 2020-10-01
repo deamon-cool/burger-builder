@@ -37,7 +37,8 @@ class Auth extends React.Component {
                 valid: false,
                 touched: false
             },
-        }
+        },
+        isSignup: true
     };
 
     inputChangedHandler = (event, controlName) => {
@@ -87,6 +88,12 @@ class Auth extends React.Component {
             this.state.controls.password.value);
     }
 
+    switchAuthModeHandler = () => {
+        this.setState(prevState => {
+            return { isSignup: !prevState.isSignup };
+        });
+    }
+
     render() {
         const formElementsArray = [];
         for (let key in this.state.controls) {
@@ -114,6 +121,9 @@ class Auth extends React.Component {
                     {form}
                     <Button btnType='Success'>SUBMIT</Button>
                 </form>
+                <Button
+                    clicked={this.switchAuthModeHandler}
+                    btnType='Danger'>SIGN {this.state.isSignup ? 'IN' : 'UP'}</Button>
             </div>
         );
     }
