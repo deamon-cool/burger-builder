@@ -123,7 +123,7 @@ class Auth extends React.Component {
                 </form>
                 <Button
                     clicked={this.switchAuthModeHandler}
-                    btnType='Danger'>SIGN {this.state.isSignup ? 'IN' : 'UP'}</Button>
+                    btnType='Danger'>SWITCH TO SIGN {this.state.isSignup ? 'IN' : 'UP'}</Button>
             </div>
         );
     }
