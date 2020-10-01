@@ -21,6 +21,14 @@ export const authFail = (error) => {
     };
 };
 
+export const checkAuthTimeout = (expirationTime) => {
+    return dispatch => {
+        setTimeout(()=>{
+
+        }, expirationTime);
+    }
+};
+
 export const auth = (email, password, isSignup) => {
     return dispatch => {
         dispatch(authStart());
