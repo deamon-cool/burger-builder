@@ -20,7 +20,7 @@ export const authFail = (error) => {
     };
 };
 
-export const auth = (email, password, isSignUp) => {
+export const auth = (email, password, isSignup) => {
     return dispatch => {
         dispatch(authStart());
 
@@ -32,7 +32,7 @@ export const auth = (email, password, isSignUp) => {
 
         let url = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyC4NOAuGRsfAEm27jdqQkNFEcWWxiG_EzM';
 
-        if (!isSignUp) {
+        if (!isSignup) {
             url = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyC4NOAuGRsfAEm27jdqQkNFEcWWxiG_EzM'
         }
 
