@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import actions from '../../../store/actions/index';
+
 class Logout extends React.Component {
     render() {
         return (
@@ -11,7 +13,7 @@ class Logout extends React.Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-
+        onLogout: () => dispatch(actions.logout())
     };
 };
 
