@@ -8,6 +8,6 @@ const navigationItems = (props) => (
         <NavigationItem link='/orders'>Orders</NavigationItem>
         <NavigationItem link='/auth'>Authenticate</NavigationItem>
     </ul>
-)
+);
 
 export default navigationItems;
