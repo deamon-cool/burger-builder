@@ -34,7 +34,12 @@ class Layout extends React.Component {
             </Aux>
         );
     }
-
 }
 
-export default Layout;
+const mapStateToProps = state => {
+    return {
+        isAuthenticated: state.auth.token !== null
+    };
+}
+
+export default connect(mapStateToProps, null)(Layout);
