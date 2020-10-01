@@ -60,6 +60,7 @@ export const auth = (email, password, isSignup) => {
                     dispatch(authFail(data.error));
                 } else {
                     dispatch(authSuccess(data.idToken, data.localId));
+                    dispatch(checkAuthTimeout(data.expiresIn));
                 }
             }).catch(err => {
                 dispatch(authFail(err));
