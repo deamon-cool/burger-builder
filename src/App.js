@@ -10,20 +10,27 @@ import Auth from './containers/Auth/Auth';
 import Logout from './containers/Auth/Logout/Logout';
 import * as actions from './store/actions/index';
 
-function App() {
-  return (
-    <div>
-      <Lauout>
-        <Switch>
-          <Route path='/checkout' component={Checkout} />
-          <Route path='/orders' component={Orders} />
-          <Route path='/auth' component={Auth} />
-          <Route path='/logout' component={Logout} />
-          <Route path='/' exact component={BurgerBuilder} />
-        </Switch>
-      </Lauout>
-    </div>
-  );
+class App extends React.Component {
+
+  componentDidMount() {
+
+  }
+
+  render() {
+    return (
+      <div>
+        <Lauout>
+          <Switch>
+            <Route path='/checkout' component={Checkout} />
+            <Route path='/orders' component={Orders} />
+            <Route path='/auth' component={Auth} />
+            <Route path='/logout' component={Logout} />
+            <Route path='/' exact component={BurgerBuilder} />
+          </Switch>
+        </Lauout>
+      </div>
+    );
+  }
 }
 
 const mapDispatchToProps = dispatch => {
