@@ -107,7 +107,6 @@ export const authCheckState = () => {
             } else {
                 dispatch(logout());
             }
-            dispatch(authSuccess());
         }
     };
 };
