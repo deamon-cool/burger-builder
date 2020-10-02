@@ -26,16 +26,10 @@ function App() {
   );
 }
 
-const mapStateToProps = state => {
-  return {
-
-  };
-};
-
 const mapDispatchToProps = dispatch => {
   return {
     onTryAutoSignup: () => dispatch(actions.authCheckState())
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(null, mapDispatchToProps)(App);
