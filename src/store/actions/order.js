@@ -78,7 +78,7 @@ export const fetchOrders = (token, userId) => {
         };
 
         const queryParams = '?auth=' + token
-            + '&orderBy=userId&equalTo=' + userId;
+            + '&orderBy="userId"&equalTo="' + userId + '"';
 
         fetch(config.url + 'orders.json' + queryParams, init)
             .then(res => res.json())
