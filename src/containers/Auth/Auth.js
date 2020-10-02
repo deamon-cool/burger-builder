@@ -137,7 +137,6 @@ class Auth extends React.Component {
         }
 
         let authRedirect = null;
-        console.log(this.props.authRedirect)
         if (this.props.isAuthenticated) {
             authRedirect = <Redirect to={this.props.authRedirect} />
         }
