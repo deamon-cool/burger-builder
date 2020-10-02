@@ -3,7 +3,8 @@ import * as actionTypes from '../actions/actionTypes';
 const initState = {
     ingredients: null,
     totalPrice: 4,
-    error: false
+    error: false,
+    building: false
 };
 
 const INGREDIENT_PRICES = {
