@@ -88,3 +88,16 @@ export const setAuthRedirectPath = (path) => {
         path: path
     };
 };
+
+export const authCheckState = () => {
+    return dispatch => {
+        const token = localStorage.getItem('token');
+        if (!token) {
+            dispatch(logout());
+        } else {
+            const expirationDate = localStorage.getItem('expirationDate');
+
+            dispatch(authSuccess());
+        }
+    };
+};
