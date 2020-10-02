@@ -13,7 +13,7 @@ import * as actions from './store/actions/index';
 class App extends React.Component {
 
   componentDidMount() {
-
+    this.props.onTryAutoSignup();
   }
 
   render() {
