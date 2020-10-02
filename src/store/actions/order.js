@@ -68,7 +68,7 @@ export const fetchOrdersStart = () => {
     };
 };
 
-export const fetchOrders = (token) => {
+export const fetchOrders = (token, userId) => {
     return dispatch => {
         dispatch(fetchOrdersStart());
 
@@ -77,7 +77,10 @@ export const fetchOrders = (token) => {
             headers: { 'Content-Type': 'application/json' }
         };
 
-        fetch(config.url + 'orders.json?auth=' + token, init)
+        const queryParams = '?auth=' + token
+            + '&orderBy=userId&equalTo=' + userId;
+
+        fetch(config.url + 'orders.json' + queryParams, init)
             .then(res => res.json())
             .then(data => {
                 const fetchedOrders = [];
