@@ -5,36 +5,34 @@ import { connect } from 'react-redux';
 import CheckoutSummary from '../../components/Order/CheckoutSummary/CheckoutSummary';
 import ContactData from './ContactData/ContactData';
 
-class Checkout extends React.Component {
-
-    checkoutCancellHandler = () => {
-        this.props.history.goBack();
+function Checkout(props) {
+    const checkoutCancellHandler = () => {
+        props.history.goBack();
     }
 
-    checkoutContinueHandler = () => {
-        this.props.history.replace('/checkout/contact-data');
+    const checkoutContinueHandler = () => {
+        props.history.replace('/checkout/contact-data');
     }
 
-    render() {
-        let summary = <Redirect to='/' />
-        if (this.props.ings) {
-            const purchasedRedirect = this.props.purchased ? <Redirect to='/' /> : null;
-            summary = (
-                <div>
-                    {purchasedRedirect}
-                    <CheckoutSummary
-                        onCheckoutCancelled={this.checkoutCancellHandler}
-                        onCheckoutContinued={this.checkoutContinueHandler}
-                        ingredients={this.props.ings} />
-                    <Route
-                        path={this.props.match.url + '/contact-data'}
-                        component={ContactData} />
-                </div>
-            );
-        }
 
-        return summary;
+    let summary = <Redirect to='/' />
+    if (props.ings) {
+        const purchasedRedirect = props.purchased ? <Redirect to='/' /> : null;
+        summary = (
+            <div>
+                {purchasedRedirect}
+                <CheckoutSummary
+                    onCheckoutCancelled={checkoutCancellHandler}
+                    onCheckoutContinued={checkoutContinueHandler}
+                    ingredients={props.ings} />
+                <Route
+                    path={props.match.url + '/contact-data'}
+                    component={ContactData} />
+            </div>
+        );
     }
+
+    return summary;
 }
 
 const mapStateToProps = state => {
